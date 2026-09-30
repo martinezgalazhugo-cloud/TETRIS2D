@@ -49,7 +49,15 @@ namespace Tetris2D
             _pantalla.Cargar();
 
             // FASE 2: aqui se conecta el cambio hacia el tablero. Ejemplo:
-            // _pantalla.JugarSolicitado += nombre => CambiarPantalla(new PantallaJuego(...));
+             _pantalla.JugarSolicitado += nombre => 
+             CambiarPantalla(new PantallaJuego(_shaders, _cuadros, _texto, nombre));
+        }
+
+        // Implementar cambio de pantalla
+        private void CambiarPantalla(Pantalla nueva)
+        {
+            _pantalla = nueva;
+            _pantalla.Cargar();
         }
 
         /// <summary>
